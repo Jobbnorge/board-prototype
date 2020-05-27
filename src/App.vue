@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <BoardComponent msg="Welcome to Your Vue.js App"/>
+    <BoardComponent />
   </div>
 </template>
 
@@ -15,7 +14,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
