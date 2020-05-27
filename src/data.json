@@ -1,5 +1,9 @@
 {
-  "nominated": [
+  "nominated": [],
+  "qualified": [],
+  "notQualified": [],
+  "interview": [],
+  "notAssessed": [
     {
       "id": 9482,
       "firstName": "Alexander",
@@ -7,15 +11,34 @@
       "title": "Webforms dev",
       "age": 26,
       "applicationDate": "$date('2019-08-12 14:51:06')"
-    }
-  ],
-  "qualified": [],
-  "notQualified": [],
-  "interview": [],
-  "notAssessed": [    
+    },
     {
       "id": 10481,
       "firstName": "Morten",
+      "lastName": "André Lines",
+      "title": "Arbeidsledig",
+      "age": 34,
+      "applicationDate": "$date('2019-10-14 13:19:39')"
+    },
+    {
+      "id": 10482,
+      "firstName": "Lars",
+      "lastName": "André Lines",
+      "title": "Arbeidsledig",
+      "age": 34,
+      "applicationDate": "$date('2019-10-14 13:19:39')"
+    },
+    {
+      "id": 10483,
+      "firstName": "Vilje",
+      "lastName": "André Lines",
+      "title": "Arbeidsledig",
+      "age": 34,
+      "applicationDate": "$date('2019-10-14 13:19:39')"
+    },
+    {
+      "id": 10484,
+      "firstName": "Emmy",
       "lastName": "André Lines",
       "title": "Arbeidsledig",
       "age": 34,

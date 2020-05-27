@@ -164,10 +164,13 @@ export default {
     },
     setActive: function() {},
     listChanged(evt, listName) {
+      console.info(evt)
       if (Object.prototype.hasOwnProperty.call(evt, "added")) {
         store.addCandidate(listName, evt.added.element);
       } else if (Object.prototype.hasOwnProperty.call(evt, "removed")) {
         store.removeCandidate(listName, evt.removed.element);
+      } else if (Object.prototype.hasOwnProperty.call(evt, "moved")){
+        store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
     }
   }
