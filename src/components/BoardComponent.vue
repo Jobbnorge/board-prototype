@@ -89,6 +89,14 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
+    <button @click="openFluffModal">Trykk meg!</button>
+    <JnDialogComponent v-bind="fluffData" @resolveModal="resolveModal">
+      <template #body>
+        <div>
+          <p>hello jeg kan være en hvilken som helst komponente :P</p>
+        </div>
+      </template>
+    </JnDialogComponent>
   </div>
 </template>
 
@@ -97,17 +105,35 @@ import JnBoardList from "@jobbnorge/jn-components/src/ui_components/board/JnBoar
 import JnJobseekerMiniCard from "@jobbnorge/jn-components/src/ui_components/board/JnJobseekerMiniCard";
 import ToggleButton from "./ToggleButton";
 import { store } from "../store";
+import JnDialogComponent from "@jobbnorge/jn-components/src/ui_components/jn-dialog/JnDialogComponent";
+//import {JnDialog} from "@jobbnorge/jn-components/jn_modules/jn-dialog/jn-dialog";
 
 export default {
   name: "BoardComponent",
   components: {
     ToggleButton,
     JnBoardList,
-    JnJobseekerMiniCard
+    JnJobseekerMiniCard,
+    JnDialogComponent
   },
   data: function() {
     return {
       boardGroup: "candidates",
+      fluffData: {
+        modalId: "fluffModal",
+        display: false,
+        modalTitle: "hei",
+        modalBody: "fluff",
+        size: "",
+        rejectButton: {
+          visible: false,
+          text: ""
+        },
+        resolveButton: {
+          visible: true,
+          text: "Fluff OK"
+        }
+      },
       globalState: store.state,
       ordering: {
         direction: null,
@@ -169,9 +195,15 @@ export default {
       } else if (Object.prototype.hasOwnProperty.call(evt, "removed")) {
         store.removeCandidate(listName, evt.removed.element);
       }
+    },
+    openFluffModal() {
+      this.fluffData.display = true;
+    },
+    resolveModal() {
+      this.fluffData.display = false;
     }
-  }
-};
+  
+}}
 </script>
 
 <style scoped>
