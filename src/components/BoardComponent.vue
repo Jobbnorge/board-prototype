@@ -29,6 +29,8 @@
         name="Til vurdering"
         :items="globalState.candidates.notAssessed"
         v-bind="ordering"
+        :draggableGroup="boardGroup"
+        @draggableChanged="listChanged($event, 'notAssessed')"
       >
         <template #button>
           <button
@@ -44,7 +46,13 @@
         </template>
       </JnBoardList>
 
-      <JnBoardList name="Kvalifisert" :items="globalState.candidates.qualified" v-bind="ordering">
+      <JnBoardList
+        name="Kvalifisert"
+        :items="globalState.candidates.qualified"
+        v-bind="ordering"
+        :draggableGroup="boardGroup"
+        @draggableChanged="listChanged($event, 'qualified')"
+      >
         <template #button>
           <button
             v-if="globalState.candidates.qualified.length > 0"
@@ -63,12 +71,22 @@
         :items="globalState.candidates.notQualified"
         v-bind="ordering"
         class="notqualified"
+        :draggableGroup="boardGroup"
+        @draggableChanged="listChanged($event, 'notQualified')"
       />
-      <JnBoardList name="Intervju" :items="globalState.candidates.interview" v-bind="ordering" />
+      <JnBoardList
+        name="Intervju"
+        :items="globalState.candidates.interview"
+        v-bind="ordering"
+        :draggableGroup="boardGroup"
+        @draggableChanged="listChanged($event, 'interview')"
+      />
       <JnBoardList
         name="Innstillinger"
         :items="globalState.candidates.nominated"
         v-bind="ordering"
+        :draggableGroup="boardGroup"
+        @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
   </div>
@@ -89,6 +107,7 @@ export default {
   },
   data: function() {
     return {
+      boardGroup: "candidates",
       globalState: store.state,
       ordering: {
         direction: null,
@@ -143,7 +162,14 @@ export default {
       this.ordering.orderby = orderby;
       this.ordering.direction = direction;
     },
-    setActive: function() {}
+    setActive: function() {},
+    listChanged(evt, listName) {
+      if (Object.prototype.hasOwnProperty.call(evt, "added")) {
+        store.addCandidate(listName, evt.added.element);
+      } else if (Object.prototype.hasOwnProperty.call(evt, "removed")) {
+        store.removeCandidate(listName, evt.removed.element);
+      }
+    }
   }
 };
 </script>
