@@ -83,7 +83,7 @@
       />
       <JnBoardList
         name="Innstillinger"
-        :items="globalState.candidates.nominated.map((obj,idx) => ({ ...obj, label: `Nr.${idx+1}`}))"
+        :items="globalState.candidates.nominated"
         v-bind="ordering"
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'nominated')"
