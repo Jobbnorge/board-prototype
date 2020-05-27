@@ -1,16 +1,18 @@
 {
-  "nominated": [],
-  "qualified": [],
-  "notQualified": [],
-  "interview": [],
-  "notAssessed": [
+  "nominated": [
     {
       "id": 9482,
       "firstName": "Alexander",
       "lastName": "Schmidt",
-      "title": "",
+      "title": "Webforms dev",
+      "age": 26,
       "applicationDate": "$date('2019-08-12 14:51:06')"
-    },
+    }
+  ],
+  "qualified": [],
+  "notQualified": [],
+  "interview": [],
+  "notAssessed": [    
     {
       "id": 10481,
       "firstName": "Morten",
