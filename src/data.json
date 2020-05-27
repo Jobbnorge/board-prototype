@@ -1,0 +1,24 @@
+{
+  "nominated": [],
+  "qualified": [],
+  "notQualified": [],
+  "interview": [],
+  "notAssessed": [
+    {
+      "id": 9482,
+      "firstName": "Alexander",
+      "lastName": "Schmidt",
+      "title": "",
+      "applicationDate": "$date('2019-08-12 14:51:06')"
+    },
+    {
+      "id": 10481,
+      "firstName": "Morten",
+      "lastName": "André Lines",
+      "title": "Arbeidsledig",
+      "age": 34,
+      "applicationDate": "$date('2019-10-14 13:19:39')"
+    }
+  ],
+  "hired": []
+}
