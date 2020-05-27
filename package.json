@@ -13,8 +13,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@jobbnorge/jn-components": "^0.5.5",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vuedraggable": "^2.23.2"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
