@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import './public/global.css';
-
+import '../public/global.css';
 
 /** Font Awesome Stuff **/
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
