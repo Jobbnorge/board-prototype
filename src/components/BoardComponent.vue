@@ -83,7 +83,7 @@
       />
       <JnBoardList
         name="Innstillinger"
-        :items="globalState.candidates.nominated.map((obj,idx) => ({ ...obj, label: `Nr.${idx+1}`}))"
+        :items="globalState.candidates.nominated"
         v-bind="ordering"
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'nominated')"
@@ -164,10 +164,13 @@ export default {
     },
     setActive: function() {},
     listChanged(evt, listName) {
+      console.info(evt)
       if (Object.prototype.hasOwnProperty.call(evt, "added")) {
         store.addCandidate(listName, evt.added.element);
       } else if (Object.prototype.hasOwnProperty.call(evt, "removed")) {
         store.removeCandidate(listName, evt.removed.element);
+      } else if (Object.prototype.hasOwnProperty.call(evt, "moved")){
+        store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
     }
   }
