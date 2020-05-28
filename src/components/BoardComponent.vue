@@ -101,7 +101,6 @@ import JnBoardList from "@jobbnorge/jn-components/src/ui_components/board/JnBoar
 import JnJobseekerMiniCard from "@jobbnorge/jn-components/src/ui_components/board/JnJobseekerMiniCard";
 import ToggleButton from "./ToggleButton";
 import CandidateModal from "./CandidateModal"; 
-import CandidateDetails from "./CandidateDetails";
 
 import { store } from "../store";
 
