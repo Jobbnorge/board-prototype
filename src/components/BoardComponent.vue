@@ -196,6 +196,7 @@ export default {
       } else if (Object.prototype.hasOwnProperty.call(evt, "removed")) {
         store.removeCandidate(listName, evt.removed.element);
       } else if (Object.prototype.hasOwnProperty.call(evt, "moved")){
+        this.setOrdering(null, null);
         store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
     },
