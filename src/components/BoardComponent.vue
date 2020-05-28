@@ -31,7 +31,7 @@
         v-bind="ordering"
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'notAssessed')"
-        @draggableItemClicked="openModal"
+        @draggableItemClicked="openModal($event)"
       >
         <template #button>
           <button
@@ -90,18 +90,9 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
-<<<<<<< HEAD
-    <CandidateModal :modalData="fluffData" @ok="resolveModal" />
-=======
-    <button @click="openFluffModal">Trykk meg!</button>
-    <JnDialogComponent v-bind="fluffData" @resolveModal="resolveModal">
-      <template #body>
-        <div>
-          <p>hello jeg kan være en hvilken som helst komponente :P</p>
-        </div>
-      </template>
-    </JnDialogComponent>
->>>>>>> 900914b98e0fe23f5c773328850fc5733faa39e8
+    <CandidateModal :modalData="modalData" @ok="resolveModal" >
+      <CandidateDetails />
+    </CandidateModal>
   </div>
 </template>
 
@@ -110,9 +101,9 @@ import JnBoardList from "@jobbnorge/jn-components/src/ui_components/board/JnBoar
 import JnJobseekerMiniCard from "@jobbnorge/jn-components/src/ui_components/board/JnJobseekerMiniCard";
 import ToggleButton from "./ToggleButton";
 import CandidateModal from "./CandidateModal"; 
+import CandidateDetails from "./CandidateDetails";
 
 import { store } from "../store";
-import JnDialogComponent from "@jobbnorge/jn-components/src/ui_components/jn-dialog/JnDialogComponent";
 //import {JnDialog} from "@jobbnorge/jn-components/jn_modules/jn-dialog/jn-dialog";
 
 export default {
@@ -121,16 +112,13 @@ export default {
     ToggleButton,
     JnBoardList,
     JnJobseekerMiniCard,
-<<<<<<< HEAD
-    CandidateModal
-=======
-    JnDialogComponent
->>>>>>> 900914b98e0fe23f5c773328850fc5733faa39e8
+    CandidateModal,
+    CandidateDetails
   },
   data: function() {
     return {
       boardGroup: "candidates",
-      fluffData: {
+      modalData: {
         modalId: "fluffModal",
         display: false,
         modalTitle: "hei",
@@ -182,22 +170,7 @@ export default {
             ascIcon: "long-arrow-up"
           }
         ]
-      },
-      fluffData: {
-        modalId: "fluffModal",
-        display: false,
-        modalTitle: "hei",
-        modalBody: "fluff",
-        size: "",
-        rejectButton: {
-          visible: false,
-          text: ""
-        },
-        resolveButton: {
-          visible: true,
-          text: "Fluff OK"
-        }
-      }      
+      }    
     };
   },
   methods: {
@@ -227,19 +200,14 @@ export default {
         store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
     },
-<<<<<<< HEAD
-    openModal() {
-      this.fluffData.display = true
+    openModal(event) {
+      this.modalData.display = true
+      this.modalData.modalBody = event
+      
+
     },
     resolveModal() {
-      this.fluffData.display = false 
-=======
-    openFluffModal() {
-      this.fluffData.display = true;
-    },
-    resolveModal() {
-      this.fluffData.display = false;
->>>>>>> 900914b98e0fe23f5c773328850fc5733faa39e8
+      this.modalData.display = false 
     }
   
 }}

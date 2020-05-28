@@ -10,7 +10,10 @@
       "lastName": "Schmidt",
       "title": "Webforms dev",
       "age": 26,
-      "applicationDate": "$date('2019-08-12 14:51:06')"
+      "applicationDate": "$date('2019-08-12 14:51:06')",
+      "email": "test@test.no",
+      "birthday":"01.01.2000",
+      "phone":"123456789"
     },
     {
       "id": 10481,
@@ -18,7 +21,10 @@
       "lastName": "André Lines",
       "title": "Arbeidsledig",
       "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')"
+      "applicationDate": "$date('2019-10-14 13:19:39')",
+      "email": "test@test.no",
+      "birthday":"01.01.2000",
+      "phone":"123456789"
     },
     {
       "id": 10482,
@@ -26,7 +32,10 @@
       "lastName": "André Lines",
       "title": "Arbeidsledig",
       "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')"
+      "applicationDate": "$date('2019-10-14 13:19:39')",
+      "email": "test@test.no",
+      "birthday":"01.01.2000",
+      "phone":"123456789"
     },
     {
       "id": 10483,
@@ -34,7 +43,10 @@
       "lastName": "André Lines",
       "title": "Arbeidsledig",
       "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')"
+      "applicationDate": "$date('2019-10-14 13:19:39')",
+      "email": "test@test.no",
+      "birthday":"01.01.2000",
+      "phone":"123456789"
     },
     {
       "id": 10484,
@@ -42,8 +54,17 @@
       "lastName": "André Lines",
       "title": "Arbeidsledig",
       "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')"
+      "applicationDate": "$date('2019-10-14 13:19:39')",
+      "email": "test@test.no",
+      "birthday":"01.01.2000",
+      "phone":"123456789"
     }
   ],
-  "hired": []
+  "hired": [],
+  "icons": {
+    "birthday":  "calendar-alt",
+    "title":  "briefcase",
+    "email": "envelope",
+    "phone":"phone"
+  }
 }
