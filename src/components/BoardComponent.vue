@@ -24,13 +24,14 @@
       >{{ button.text }}</ToggleButton>
     </div>
 
-    <div class="board">
+    <div class="board pointer">
       <JnBoardList
         name="Til vurdering"
         :items="globalState.candidates.notAssessed"
         v-bind="ordering"
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'notAssessed')"
+        @draggableItemClicked="openModal"
       >
         <template #button>
           <button
@@ -89,6 +90,7 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
+    <CandidateModal :modalData="fluffData" @ok="resolveModal" />
   </div>
 </template>
 
@@ -96,6 +98,8 @@
 import JnBoardList from "@jobbnorge/jn-components/src/ui_components/board/JnBoardList";
 import JnJobseekerMiniCard from "@jobbnorge/jn-components/src/ui_components/board/JnJobseekerMiniCard";
 import ToggleButton from "./ToggleButton";
+import CandidateModal from "./CandidateModal"; 
+
 import { store } from "../store";
 
 export default {
@@ -103,7 +107,8 @@ export default {
   components: {
     ToggleButton,
     JnBoardList,
-    JnJobseekerMiniCard
+    JnJobseekerMiniCard,
+    CandidateModal
   },
   data: function() {
     return {
@@ -145,7 +150,22 @@ export default {
             ascIcon: "long-arrow-up"
           }
         ]
-      }
+      },
+      fluffData: {
+        modalId: "fluffModal",
+        display: false,
+        modalTitle: "hei",
+        modalBody: "fluff",
+        size: "",
+        rejectButton: {
+          visible: false,
+          text: ""
+        },
+        resolveButton: {
+          visible: true,
+          text: "Fluff OK"
+        }
+      }      
     };
   },
   methods: {
@@ -172,6 +192,12 @@ export default {
       } else if (Object.prototype.hasOwnProperty.call(evt, "moved")){
         store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
+    },
+    openModal() {
+      this.fluffData.display = true
+    },
+    resolveModal() {
+      this.fluffData.display = false 
     }
   }
 };
@@ -229,5 +255,8 @@ export default {
 
 .sortButtons .toggleButton {
   margin: 0 0.5em;
+}
+.pointer {
+  cursor: pointer; 
 }
 </style>
