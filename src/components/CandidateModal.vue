@@ -1,7 +1,10 @@
 <template>
         <JnDialogComponent v-bind="modalData" @resolveModal ="$emit('ok', $event)" >
+            <template #header>
+                <slot name="modalHeader"></slot>
+            </template>
             <template #body>
-                <slot></slot>
+                <slot name="modalBody"></slot>
             </template>
         </JnDialogComponent>
 </template>

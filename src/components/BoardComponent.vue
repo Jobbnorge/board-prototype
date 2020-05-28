@@ -90,18 +90,7 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
-<<<<<<< HEAD
     <CandidateModal :modalData="fluffData" @ok="resolveModal" />
-=======
-    <button @click="openFluffModal">Trykk meg!</button>
-    <JnDialogComponent v-bind="fluffData" @resolveModal="resolveModal">
-      <template #body>
-        <div>
-          <p>hello jeg kan være en hvilken som helst komponente :P</p>
-        </div>
-      </template>
-    </JnDialogComponent>
->>>>>>> 900914b98e0fe23f5c773328850fc5733faa39e8
   </div>
 </template>
 
@@ -112,8 +101,6 @@ import ToggleButton from "./ToggleButton";
 import CandidateModal from "./CandidateModal"; 
 
 import { store } from "../store";
-import JnDialogComponent from "@jobbnorge/jn-components/src/ui_components/jn-dialog/JnDialogComponent";
-//import {JnDialog} from "@jobbnorge/jn-components/jn_modules/jn-dialog/jn-dialog";
 
 export default {
   name: "BoardComponent",
@@ -121,30 +108,11 @@ export default {
     ToggleButton,
     JnBoardList,
     JnJobseekerMiniCard,
-<<<<<<< HEAD
-    CandidateModal
-=======
-    JnDialogComponent
->>>>>>> 900914b98e0fe23f5c773328850fc5733faa39e8
+    CandidateModal,
   },
   data: function() {
     return {
       boardGroup: "candidates",
-      fluffData: {
-        modalId: "fluffModal",
-        display: false,
-        modalTitle: "hei",
-        modalBody: "fluff",
-        size: "",
-        rejectButton: {
-          visible: false,
-          text: ""
-        },
-        resolveButton: {
-          visible: true,
-          text: "Fluff OK"
-        }
-      },
       globalState: store.state,
       ordering: {
         direction: null,
@@ -186,7 +154,7 @@ export default {
       fluffData: {
         modalId: "fluffModal",
         display: false,
-        modalTitle: "hei",
+        modalTitle: "",
         modalBody: "fluff",
         size: "",
         rejectButton: {
@@ -197,7 +165,7 @@ export default {
           visible: true,
           text: "Fluff OK"
         }
-      }      
+      },    
     };
   },
   methods: {
@@ -227,19 +195,11 @@ export default {
         store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
     },
-<<<<<<< HEAD
     openModal() {
       this.fluffData.display = true
     },
     resolveModal() {
       this.fluffData.display = false 
-=======
-    openFluffModal() {
-      this.fluffData.display = true;
-    },
-    resolveModal() {
-      this.fluffData.display = false;
->>>>>>> 900914b98e0fe23f5c773328850fc5733faa39e8
     }
   
 }}
