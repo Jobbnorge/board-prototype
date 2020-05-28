@@ -9,8 +9,8 @@ class Store {
     setCandidates(_candidates) {
         this.state.candidates = _candidates;
     }
-    addCandidate(listName, candidate) {
-        this.state.candidates[listName].push(candidate);
+    addCandidate(listName, candidate, index) {
+        this.state.candidates[listName].splice(index, 0, candidate);
         this.setNominationNumbers();
     }
     removeCandidate(listName, candidate) {     

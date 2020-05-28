@@ -190,9 +190,10 @@ export default {
     },
     setActive: function() {},
     listChanged(evt, listName) {
+      this.setOrdering(null,null);
       console.info(evt)
       if (Object.prototype.hasOwnProperty.call(evt, "added")) {
-        store.addCandidate(listName, evt.added.element);
+        store.addCandidate(listName, evt.added.element, evt.added.newIndex);
       } else if (Object.prototype.hasOwnProperty.call(evt, "removed")) {
         store.removeCandidate(listName, evt.removed.element);
       } else if (Object.prototype.hasOwnProperty.call(evt, "moved")){
