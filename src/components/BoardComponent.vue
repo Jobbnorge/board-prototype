@@ -31,7 +31,7 @@
         v-bind="ordering"
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'notAssessed')"
-        @draggableItemClicked="openModal"
+        @draggableItemClicked="openModal($event)"
       >
         <template #button>
           <button
@@ -90,7 +90,9 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
-    <CandidateModal :modalData="fluffData" @ok="resolveModal" />
+    <CandidateModal :modalData="modalData" @ok="resolveModal" >
+      <CandidateDetails />
+    </CandidateModal>
   </div>
 </template>
 
@@ -99,6 +101,7 @@ import JnBoardList from "@jobbnorge/jn-components/src/ui_components/board/JnBoar
 import JnJobseekerMiniCard from "@jobbnorge/jn-components/src/ui_components/board/JnJobseekerMiniCard";
 import ToggleButton from "./ToggleButton";
 import CandidateModal from "./CandidateModal"; 
+import CandidateDetails from "./CandidateDetails";
 
 import { store } from "../store";
 
@@ -113,6 +116,21 @@ export default {
   data: function() {
     return {
       boardGroup: "candidates",
+      modalData: {
+        modalId: "fluffModal",
+        display: false,
+        modalTitle: "hei",
+        modalBody: "fluff",
+        size: "",
+        rejectButton: {
+          visible: false,
+          text: ""
+        },
+        resolveButton: {
+          visible: true,
+          text: "Fluff OK"
+        }
+      },
       globalState: store.state,
       ordering: {
         direction: null,
@@ -150,22 +168,7 @@ export default {
             ascIcon: "long-arrow-up"
           }
         ]
-      },
-      fluffData: {
-        modalId: "fluffModal",
-        display: false,
-        modalTitle: "",
-        modalBody: "fluff",
-        size: "",
-        rejectButton: {
-          visible: false,
-          text: ""
-        },
-        resolveButton: {
-          visible: true,
-          text: "Fluff OK"
-        }
-      },    
+      }    
     };
   },
   methods: {
@@ -195,11 +198,14 @@ export default {
         store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
     },
-    openModal() {
-      this.fluffData.display = true
+    openModal(event) {
+      this.modalData.display = true
+      this.modalData.modalBody = event
+      
+
     },
     resolveModal() {
-      this.fluffData.display = false 
+      this.modalData.display = false 
     }
   
 }}
