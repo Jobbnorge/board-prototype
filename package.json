@@ -11,7 +11,11 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/pro-light-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
+<<<<<<< HEAD
     "@jobbnorge/jn-components": "^0.5.8",
+=======
+    "@jobbnorge/jn-components": "^0.5.6",
+>>>>>>> 900914b98e0fe23f5c773328850fc5733faa39e8
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
