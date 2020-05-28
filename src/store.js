@@ -11,15 +11,20 @@ class Store {
     }
     addCandidate(listName, candidate) {
         this.state.candidates[listName].push(candidate);
-        if(listName === 'nominated') candidate.label = this.state.candidates[listName].indexOf(candidate);
+        this.setNominationNumbers();
     }
-    removeCandidate(listName, candidate) {
-        if(listName === 'nominated') candidate.label = null;
+    removeCandidate(listName, candidate) {     
+        candidate.label = null;   
         let index = this.state.candidates[listName].indexOf(candidate);
         this.state.candidates[listName].splice(index, 1);
+        this.setNominationNumbers();
     }
     moveCandidate(listName, oldIndex, newIndex) {
         this.state.candidates[listName].splice(newIndex, 0, this.state.candidates[listName].splice(oldIndex, 1)[0]);
+        this.setNominationNumbers();
+    }
+    setNominationNumbers(){
+        this.state.candidates['nominated'].forEach((c,i) => c.label = `Nr.${i+1}` )
     }
 }
 
