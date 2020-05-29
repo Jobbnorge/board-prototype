@@ -1,5 +1,5 @@
 <template>
-  <div class="board-view">
+  <div>
     <div class="hired" v-bind:class="{ active: hasHiredCandidate() }">
       <div class="head">Ansatt</div>
       <div class="candidates">
@@ -221,12 +221,9 @@ export default {
 </script>
 
 <style scoped>
-.board-view {
-  margin-top: 2rem; 
-}
 .board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
   gap: 1rem;
 }
