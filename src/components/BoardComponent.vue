@@ -91,13 +91,7 @@
       />
     </div>
     <CandidateModal :modalData="modalData" @ok="resolveModal" >
-      <template #modalHeader>
-        <p>Header</p>
-        <p>{{selectedCandidate}}</p>
-      </template>
-      <template #modalBody>
-        <p>alt av detaljer inn her</p> 
-      </template>
+      <CandidateDetails />
     </CandidateModal>
   </div>
 </template>
@@ -121,12 +115,11 @@ export default {
   data: function() {
     return {
       boardGroup: "candidates",
-      selectedCandidate: {}, 
       modalData: {
         modalId: "fluffModal",
         display: false,
-        modalTitle: "",
-        modalBody: "",
+        modalTitle: "hei",
+        modalBody: "fluff",
         size: "",
         rejectButton: {
           visible: false,
@@ -206,10 +199,7 @@ export default {
     },
     openModal(event) {
       this.modalData.display = true
-      this.selectedCandidate = event
-      //this.modalData.modalBody = event
-      
-      
+      this.modalData.modalBody = event
       
 
     },
