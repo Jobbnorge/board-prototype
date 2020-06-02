@@ -90,15 +90,7 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
-    <CandidateModal :modalData="modalData" @ok="resolveModal" >
-      <template #modalHeader>
-        <p>Header</p>
-        <p>{{selectedCandidate}}</p>
-      </template>
-      <template #modalBody>
-        <p>alt av detaljer inn her</p> 
-      </template>
-    </CandidateModal>
+    <CandidateModal :modalData="modalData" :candidateData="selectedCandidate" @ok="resolveModal" />
   </div>
 </template>
 
@@ -116,12 +108,24 @@ export default {
     ToggleButton,
     JnBoardList,
     JnJobseekerMiniCard,
-    CandidateModal,
+    CandidateModal
+    
   },
   data: function() {
     return {
       boardGroup: "candidates",
-      selectedCandidate: {}, 
+      selectedCandidate: {
+        status: "notAssessed",
+        id: 9482,
+        firstName: "Alexander",
+        lastName: "Schmidt",
+        title: "Webforms dev",
+        age: 26,
+        applicationDate: "$date('2019-08-12 14:51:06')",
+        email: "test@test.no",
+        birthday:"01.01.2000",
+        phone:"123456789"
+      }, 
       modalData: {
         modalId: "fluffModal",
         display: false,
@@ -134,7 +138,7 @@ export default {
         },
         resolveButton: {
           visible: true,
-          text: "Fluff OK"
+          text: "Ferdig"
         }
       },
       globalState: store.state,
@@ -205,12 +209,9 @@ export default {
       }
     },
     openModal(event) {
+      console.log(event); 
       this.modalData.display = true
-      this.selectedCandidate = event
-      //this.modalData.modalBody = event
-      
-      
-      
+      this.selectedCandidate.id = event //while waiting for event to update with all the data
 
     },
     resolveModal() {
