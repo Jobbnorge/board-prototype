@@ -36,6 +36,8 @@ Vue.component('fa-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
+window.Vue = Vue; 
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')

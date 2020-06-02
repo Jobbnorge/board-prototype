@@ -4,7 +4,7 @@
       <div class="head">Ansatt</div>
       <div class="candidates">
         <div v-if="globalState.candidates.hired.length === 0">Stillingen er ikke besatt</div>
-        <JnJobseekerMiniCard
+        <JobseekerMiniCard
           class="candidate"
           v-for="item in globalState.candidates.hired"
           v-bind:key="item.key"
@@ -24,8 +24,8 @@
       >{{ button.text }}</ToggleButton>
     </div>
 
-    <div class="board pointer">
-      <JnBoardList
+    <div class="board">
+      <BoardList
         name="Til vurdering"
         :items="globalState.candidates.notAssessed"
         v-bind="ordering"
@@ -45,9 +45,9 @@
             "
           >Til vurdering</button>
         </template>
-      </JnBoardList>
+      </BoardList>
 
-      <JnBoardList
+      <BoardList
         name="Kvalifisert"
         :items="globalState.candidates.qualified"
         v-bind="ordering"
@@ -66,8 +66,8 @@
             "
           >Innkalle til intervju</button>
         </template>
-      </JnBoardList>
-      <JnBoardList
+      </BoardList>
+      <BoardList
         name="Ikke Kvalifisert"
         :items="globalState.candidates.notQualified"
         v-bind="ordering"
@@ -75,14 +75,14 @@
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'notQualified')"
       />
-      <JnBoardList
+      <BoardList
         name="Intervju"
         :items="globalState.candidates.interview"
         v-bind="ordering"
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'interview')"
       />
-      <JnBoardList
+      <BoardList
         name="Innstillinger"
         :items="globalState.candidates.nominated"
         v-bind="ordering"
@@ -95,8 +95,8 @@
 </template>
 
 <script>
-import JnBoardList from "@jobbnorge/jn-components/src/ui_components/board/JnBoardList";
-import JnJobseekerMiniCard from "@jobbnorge/jn-components/src/ui_components/board/JnJobseekerMiniCard";
+import BoardList from './BoardList';
+import JobseekerMiniCard from './JobseekerMiniCard';
 import ToggleButton from "./ToggleButton";
 import CandidateModal from "./CandidateModal"; 
 
@@ -106,8 +106,8 @@ export default {
   name: "BoardComponent",
   components: {
     ToggleButton,
-    JnBoardList,
-    JnJobseekerMiniCard,
+    BoardList,
+    JobseekerMiniCard,
     CandidateModal
     
   },
@@ -273,8 +273,5 @@ export default {
 
 .sortButtons .toggleButton {
   margin: 0 0.5em;
-}
-.pointer {
-  cursor: pointer; 
 }
 </style>

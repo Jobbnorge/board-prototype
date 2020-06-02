@@ -3,7 +3,6 @@
         <h1 class="candidate-name">{{name}}</h1>
         <JnIconList :listItems="iconMap" />
     </div>
-
 </template>
 <script>
 import JnIconList from "@jobbnorge/jn-components/src/ui_components/lists/JnIconList";
@@ -11,11 +10,11 @@ import { store } from "../store";
 
 export default {
     name: "CandidateDetails",
-    components: {
-        JnIconList
-    },
     props: {
         candidate: Object,
+    },
+    components: {
+        JnIconList
     },
     data() {
         return {
@@ -29,6 +28,7 @@ export default {
         this.iconMap = store.state.candidates.icons
         for (const iconKey in this.iconMap) {
            var value = this.candidate[iconKey]
+           this.iconMap[iconKey] = [value, this.iconMap[iconKey]]
            this.candidate[iconKey] = [value, this.iconMap[iconKey]]
         }
     }
