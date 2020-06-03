@@ -14,10 +14,5 @@ module.exports = {
         output: {
             filename: 'board_vue_app.js'
         }
-    },
-    // chainWebpack: config => {
-    //     config.plugins.delete('html')
-    //     config.plugins.delete('preload')
-    //     config.plugins.delete('prefetch')
-    // }
+    }
 }

@@ -13,7 +13,10 @@ import {
     faLongArrowUp,
     faLongArrowDown,
     faEraser,
-    faIcons
+    faIcons,
+    faEnvelope,
+    faPhone,
+    faBriefcase
 } from '@fortawesome/pro-light-svg-icons'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -30,7 +33,10 @@ const FontAwesome = {
         faSortAlphaUp,
         faSortAlphaDownAlt,
         faLongArrowUp,
-        faLongArrowDown)
+        faLongArrowDown,
+        faEnvelope,
+        faPhone,
+        faBriefcase)
     
 }
 export default FontAwesome; 

@@ -70,7 +70,7 @@
       "id": 10482,
       "firstName": "Lars",
       "lastName": "André Lines",
-      "title": "Arbeidsledig",
+      "title": "Bananmoser",
       "age": 34,
       "applicationDate": "$date('2019-10-14 13:19:39')",
       "email": "test@test.no",
@@ -81,9 +81,9 @@
       "id": 10483,
       "firstName": "Vilje",
       "lastName": "André Lines",
-      "title": "Arbeidsledig",
+      "title": "Bananskreller",
       "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')",
+      "applicationDate": "$date('2019-09-14 13:19:39')",
       "email": "test@test.no",
       "birthday":"01.01.2000",
       "phone":"123456789"
@@ -92,7 +92,7 @@
       "id": 10484,
       "firstName": "Emmy",
       "lastName": "André Lines",
-      "title": "Arbeidsledig",
+      "title": "Bananplukker",
       "age": 34,
       "applicationDate": "$date('2019-10-14 13:19:39')",
       "email": "test@test.no",
@@ -100,11 +100,5 @@
       "phone":"123456789"
     }
   ],
-  "hired": [],
-  "icons": {
-    "birthday":  "calendar-alt",
-    "title":  "briefcase",
-    "email": "envelope",
-    "phone":"phone"
-  }
+  "hired": []
 }

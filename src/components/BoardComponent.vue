@@ -89,15 +89,6 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
-    <CandidateModal :modalData="modalData" @ok="resolveModal" >
-      <template #modalHeader>
-        <p>Header</p>
-        <p>{{selectedCandidate.id}}</p>
-      </template>
-      <template #modalBody>
-        <pre>{{selectedCandidate}}</pre> 
-      </template>
-    </CandidateModal>
   </div>
 </template>
 
@@ -105,8 +96,6 @@
 import BoardList from './BoardList';
 // import JobseekerMiniCard from './JobseekerMiniCard';
 import ToggleButton from "./ToggleButton";
-import CandidateModal from "./CandidateModal"; 
-
 import { store } from "../store";
 
 export default {
@@ -114,40 +103,12 @@ export default {
   components: {
     ToggleButton,
     BoardList,
-    // JobseekerMiniCard,
-    CandidateModal
+    JobseekerMiniCard,
     
   },
   data: function() {
     return {
       boardGroup: "candidates",
-      selectedCandidate: {
-        status: "notAssessed",
-        id: 9482,
-        firstName: "Alexander",
-        lastName: "Schmidt",
-        title: "Webforms dev",
-        age: 26,
-        applicationDate: "$date('2019-08-12 14:51:06')",
-        email: "test@test.no",
-        birthday:"01.01.2000",
-        phone:"123456789"
-      }, 
-      modalData: {
-        modalId: "fluffModal",
-        display: false,
-        modalTitle: "",
-        modalBody: "",
-        size: "",
-        rejectButton: {
-          visible: false,
-          text: ""
-        },
-        resolveButton: {
-          visible: true,
-          text: "Ferdig"
-        }
-      },
       globalState: store.state,
       ordering: {
         direction: null,
@@ -215,10 +176,6 @@ export default {
         store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
     },
-    resolveModal() {
-      this.modalData.display = false 
-    }
-  
 }}
 </script>
 
