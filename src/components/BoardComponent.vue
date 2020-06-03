@@ -31,7 +31,6 @@
         v-bind="ordering"
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'notAssessed')"
-        @draggableItemClicked="openModal($event)"
       >
         <template #button>
           <button
@@ -90,13 +89,21 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
-    <CandidateModal :modalData="modalData" :candidateData="selectedCandidate" @ok="resolveModal" />
+    <CandidateModal :modalData="modalData" @ok="resolveModal" >
+      <template #modalHeader>
+        <p>Header</p>
+        <p>{{selectedCandidate.id}}</p>
+      </template>
+      <template #modalBody>
+        <pre>{{selectedCandidate}}</pre> 
+      </template>
+    </CandidateModal>
   </div>
 </template>
 
 <script>
 import BoardList from './BoardList';
-import JobseekerMiniCard from './JobseekerMiniCard';
+// import JobseekerMiniCard from './JobseekerMiniCard';
 import ToggleButton from "./ToggleButton";
 import CandidateModal from "./CandidateModal"; 
 
@@ -107,7 +114,7 @@ export default {
   components: {
     ToggleButton,
     BoardList,
-    JobseekerMiniCard,
+    // JobseekerMiniCard,
     CandidateModal
     
   },
@@ -207,12 +214,6 @@ export default {
         this.setOrdering(null, null);
         store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
-    },
-    openModal(event) {
-      console.log(event); 
-      this.modalData.display = true
-      this.selectedCandidate.id = event //while waiting for event to update with all the data
-
     },
     resolveModal() {
       this.modalData.display = false 

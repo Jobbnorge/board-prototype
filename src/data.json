@@ -1,8 +1,48 @@
 {
-  "nominated": [],
-  "qualified": [],
-  "notQualified": [],
-  "interview": [],
+  "nominated": [{
+    "id": 10493,
+    "firstName": "Emmy",
+    "lastName": "André Lines",
+    "title": "Arbeidsledig",
+    "age": 34,
+    "applicationDate": "$date('2019-10-14 13:19:39')",
+    "email": "test@test.no",
+    "birthday":"01.01.2000",
+    "phone":"123456789"
+  }],
+  "qualified": [{
+    "id": 10492,
+    "firstName": "Emmy",
+    "lastName": "André Lines",
+    "title": "Arbeidsledig",
+    "age": 34,
+    "applicationDate": "$date('2019-10-14 13:19:39')",
+    "email": "test@test.no",
+    "birthday":"01.01.2000",
+    "phone":"123456789"
+  }],
+  "notQualified": [{
+    "id": 10491,
+    "firstName": "Emmy",
+    "lastName": "André Lines",
+    "title": "Arbeidsledig",
+    "age": 34,
+    "applicationDate": "$date('2019-10-14 13:19:39')",
+    "email": "test@test.no",
+    "birthday":"01.01.2000",
+    "phone":"123456789"
+  }],
+  "interview": [{
+    "id": 10490,
+    "firstName": "Emmy",
+    "lastName": "André Lines",
+    "title": "Arbeidsledig",
+    "age": 34,
+    "applicationDate": "$date('2019-10-14 13:19:39')",
+    "email": "test@test.no",
+    "birthday":"01.01.2000",
+    "phone":"123456789"
+  }],
   "notAssessed": [
     {
       "id": 9482,

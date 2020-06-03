@@ -1,20 +1,8 @@
 <template>
   <div class="boardlist">
     <div class="head">{{ name }}</div>
-    <draggable
-      :list="orderedItems"
-      :group="draggableGroup"
-      @change="draggableChanged"
-      ghost-class="my-ghost-class"
-      easing="cubic-bezier(1, 0, 0, 1)"
-      animation="150"
-    >
-      <JobseekerMiniCard
-        v-for="item in orderedItems"
-        v-bind:key="item.id"
-        v-bind="item"
-        @miniCardClicked="$emit('draggableItemClicked', $event)"
-      />
+    <draggable :list="orderedItems" @change="$emit('draggableChanged', $event)" @start="log" :draggable="false">
+      <JobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.id" v-bind="item" />
     </draggable>
     <slot name="button" />
   </div>
@@ -22,22 +10,25 @@
 
 <script>
 import JobseekerMiniCard from "./JobseekerMiniCard";
-import draggable from "vuedraggable";
+import draggable from "../../node_modules/vuedraggable";
 
 import _ from "lodash";
 
 export default {
   name: "BoardList",
   components: {
-    JobseekerMiniCard,
-    draggable
+    draggable,
+    JobseekerMiniCard
   },
   props: {
     name: String,
     items: Array,
     orderby: String,
     direction: String,
-    draggableGroup: String,
+    draggableGroup: {
+      type: String,
+      default: "candidates"
+    },
     isDraggable: {
       type: Boolean,
       default: true
@@ -49,9 +40,9 @@ export default {
       return _.orderBy(vm.items, vm.orderby, vm.direction);
     }
   },
-    methods: {
-    draggableChanged(evt) {
-      this.$emit("draggableChanged", evt);
+  methods: {
+    log(e){
+      console.info(e)
     }
   }
 };
@@ -59,13 +50,13 @@ export default {
 
 <style scoped>
 .boardlist {
-	background-color: #eee;
-	border-radius: 3px;
-	overflow: hidden;
-	display: grid;
-	grid-template-rows: 50px;
-	row-gap: 1em;
-    cursor: pointer;
+  background-color: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 50px;
+  row-gap: 1em;
+  cursor: pointer;
 }
 
 .my-ghost-class {

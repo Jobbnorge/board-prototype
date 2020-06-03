@@ -1,5 +1,5 @@
 module.exports = {
-    outputDir: '\dist',
+    outputDir: 'C:\\Source\\Code\\Client\\packages\\clients\\board\\dist',
     filenameHashing: false,
     runtimeCompiler: true,
     configureWebpack: {
@@ -14,5 +14,10 @@ module.exports = {
         output: {
             filename: 'board_vue_app.js'
         }
-    }
+    },
+    // chainWebpack: config => {
+    //     config.plugins.delete('html')
+    //     config.plugins.delete('preload')
+    //     config.plugins.delete('prefetch')
+    // }
 }

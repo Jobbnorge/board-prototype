@@ -13,6 +13,9 @@ class Store {
         this.state.candidates[listName].splice(index, 0, candidate);
         this.setNominationNumbers();
     }
+    getCandidate(listName, candidateId){
+        return this.state.candidates[listName].find(c => c.id === candidateId);
+    }
     removeCandidate(listName, candidate) {     
         candidate.label = null;   
         let index = this.state.candidates[listName].indexOf(candidate);
