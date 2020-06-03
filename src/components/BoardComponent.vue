@@ -31,7 +31,6 @@
         v-bind="ordering"
         :draggableGroup="boardGroup"
         @draggableChanged="listChanged($event, 'notAssessed')"
-        @draggableItemClicked="openModal($event)"
       >
         <template #button>
           <button
@@ -90,7 +89,6 @@
         @draggableChanged="listChanged($event, 'nominated')"
       />
     </div>
-    <CandidateModal :modalData="modalData" :candidateData="selectedCandidate" @ok="resolveModal" />
   </div>
 </template>
 
@@ -98,8 +96,6 @@
 import BoardList from './BoardList';
 import JobseekerMiniCard from './JobseekerMiniCard';
 import ToggleButton from "./ToggleButton";
-import CandidateModal from "./CandidateModal"; 
-
 import { store } from "../store";
 
 export default {
@@ -108,39 +104,11 @@ export default {
     ToggleButton,
     BoardList,
     JobseekerMiniCard,
-    CandidateModal
     
   },
   data: function() {
     return {
       boardGroup: "candidates",
-      selectedCandidate: {
-        status: "notAssessed",
-        id: 9482,
-        firstName: "Alexander",
-        lastName: "Schmidt",
-        title: "Webforms dev",
-        age: 26,
-        applicationDate: "$date('2019-08-12 14:51:06')",
-        email: "test@test.no",
-        birthday:"01.01.2000",
-        phone:"123456789"
-      }, 
-      modalData: {
-        modalId: "fluffModal",
-        display: false,
-        modalTitle: "",
-        modalBody: "",
-        size: "",
-        rejectButton: {
-          visible: false,
-          text: ""
-        },
-        resolveButton: {
-          visible: true,
-          text: "Ferdig"
-        }
-      },
       globalState: store.state,
       ordering: {
         direction: null,
@@ -208,16 +176,6 @@ export default {
         store.moveCandidate(listName, evt.moved.oldIndex, evt.moved.newIndex);
       }
     },
-    openModal(event) {
-      console.log(event); 
-      this.modalData.display = true
-      this.selectedCandidate.id = event //while waiting for event to update with all the data
-
-    },
-    resolveModal() {
-      this.modalData.display = false 
-    }
-  
 }}
 </script>
 

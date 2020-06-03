@@ -16,7 +16,11 @@ import {
     faSortAlphaDownAlt,
     faLongArrowUp,
     faLongArrowDown,
-    faEraser
+    faEraser,
+    faBriefcase,
+    faPhone,
+    faEnvelope,
+    faCalendarAlt,
 } from '@fortawesome/pro-light-svg-icons'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -30,7 +34,12 @@ library.add(
     faSortAlphaUp,
     faSortAlphaDownAlt,
     faLongArrowUp,
-    faLongArrowDown)
+    faLongArrowDown,
+    faEnvelope,
+    faPhone,
+    faBriefcase,
+    faCalendarAlt,
+    )
 Vue.component('fa-icon', FontAwesomeIcon)
 /** END Font Awesome Stuff **/
 

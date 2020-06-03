@@ -3,7 +3,13 @@ import data from './data.json'
 class Store {
     constructor() {
         this.state = {
-            candidates: data
+            candidates: data,
+            icons: {
+                birthday: "calendar-alt",
+                title:  "briefcase",
+                email: "envelope",
+                phone:"phone"
+            }
         };
     }
     setCandidates(_candidates) {
@@ -26,6 +32,19 @@ class Store {
     setNominationNumbers(){
         this.state.candidates['nominated'].forEach((c,i) => c.label = `Nr.${i+1}` )
     }
+    getIcons() {
+        return this.state.icons
+    }
+    isQualified(candidateId) {
+        this.state.candidates["qualified"].forEach((element) => {
+            if(element.id == candidateId) {
+                return true; 
+            }
+          })
+          return false; 
+          
+    }
+
 }
 
 export const store = new Store();

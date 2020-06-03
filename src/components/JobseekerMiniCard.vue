@@ -6,7 +6,7 @@
       <p class="title">{{ title }}, {{ age }}</p>
     </div>
     <div class="details">
-      <div class="points">
+      <div v-if="points" class="points">
         <i class="icon">
           <fa-icon :icon="['fas', 'bullseye']" size="sm" />
         </i>
@@ -20,7 +20,7 @@
 <script>
 import Avatar from "@jobbnorge/jn-components/src/ui_components/misc/Avatar";
 import { jnDialog } from "@jobbnorge/jn-components/src/ui_components/jn-dialog/jn-dialog";
-import CandidateDetails from './CandidateDetails';
+import CandidateDetails from "./CandidateDetails"; 
 
 export default {
   name: "JobseekerMiniCard",
@@ -34,40 +34,52 @@ export default {
     points: Number,
     id: Number,
     age: Number,
-    label: String
+    label: String,
+    applicationDate: String,
+    email: String,
+    birthday: String,
+    phone: String,
+  },
+  data() {
+      return {
+          cleanDate: "",
+          isQualified: false 
+      }
+  },
+  created() {
+        //cleaning the applicationDate 
+        const regex = /(\d{4}-\d{2}-\d{2})/g
+        const matchToDate = new Date(this.applicationDate.match(regex));
+        this.cleanDate = matchToDate.toLocaleDateString()   
+        
   },
   methods: {
-    openModal() {
-      var vm = this;
-      jnDialog.richInfo(null, {
+     openModal() {
+        var vm = this;
+
+        jnDialog.richInfo({size: "large"}, {
         header: {
-          node: Vue.component("modal-header", {
+            node: Vue.component("modal-header", {
             render: function(createElement) {
-              return createElement("div", null, [
-                createElement("p", { domProps: { innerHTML: "Header" } }),
-                createElement("p", { domProps: { innerHTML: vm.id } })
-              ]);
+                return createElement("div", { domProps: { className: "candidate-modal-header" } }, [
+                    createElement("p", { domProps: {className: "test", innerHTML: "Søker id: " + vm.id } }),
+                    createElement("p", { domProps: { innerHTML: "Søknad mottatt: " + vm.cleanDate } })
+                ]);
             }
-          })
+            })
         },
         body: {
-          node: CandidateDetails,
-          componentProps: {
-            candidate: {
-              firstName: this.firstName,
-              lastName: this.lastName,
-              title: this.title,
-              points: this.points,
-              id: this.id,
-              age: this.age,
-              label: this.label
+            node: CandidateDetails,
+            data: {
+                props: {
+                    candidate: this
+                }
             }
-          }
         }
-      });
+        });
     }
   }
-};
+}        
 </script>
 
 <style scoped>
@@ -120,5 +132,12 @@ export default {
   width: auto;
   padding: 0 0.5em;
   justify-self: end;
+}
+.modal-header-right {
+    display: grid; 
+    justify-items: end;
+}
+.modal-header-right > p {
+  margin-bottom: 0.3rem; 
 }
 </style>
