@@ -1,70 +1,104 @@
 {
-  "nominated": [],
-  "qualified": [],
-  "notQualified": [],
-  "interview": [],
-  "notAssessed": [
-    {
-      "id": 9482,
-      "firstName": "Alexander",
-      "lastName": "Schmidt",
-      "title": "Webforms dev",
-      "age": 26,
-      "applicationDate": "$date('2019-08-12 14:51:06')",
-      "email": "test@test.no",
-      "birthday":"01.01.2000",
-      "phone":"123456789"
-    },
-    {
-      "id": 10481,
-      "firstName": "Morten",
-      "lastName": "André Lines",
-      "title": "Arbeidsledig",
-      "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')",
-      "email": "test@test.no",
-      "birthday":"01.01.2000",
-      "phone":"123456789"
-    },
-    {
-      "id": 10482,
-      "firstName": "Lars",
-      "lastName": "André Lines",
-      "title": "Arbeidsledig",
-      "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')",
-      "email": "test@test.no",
-      "birthday":"01.01.2000",
-      "phone":"123456789"
-    },
-    {
-      "id": 10483,
-      "firstName": "Vilje",
-      "lastName": "André Lines",
-      "title": "Arbeidsledig",
-      "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')",
-      "email": "test@test.no",
-      "birthday":"01.01.2000",
-      "phone":"123456789"
-    },
-    {
-      "id": 10484,
-      "firstName": "Emmy",
-      "lastName": "André Lines",
-      "title": "Arbeidsledig",
-      "age": 34,
-      "applicationDate": "$date('2019-10-14 13:19:39')",
-      "email": "test@test.no",
-      "birthday":"01.01.2000",
-      "phone":"123456789"
-    }
-  ],
-  "hired": [],
-  "icons": {
-    "birthday":  "calendar-alt",
-    "title":  "briefcase",
-    "email": "envelope",
-    "phone":"phone"
-  }
+	"nominated": [],
+	"qualified": [],
+	"notQualified": [],
+	"interview": [],
+	"notAssessed": [{
+			"id": 9482,
+			"firstName": "Tina",
+			"lastName": "Tvervik",
+			"title": "Test",
+			"age": 48,
+			"applicationDate": "$date('2019-08-12 14:51:06')",
+			"email": "test@test.no",
+			"birthday": "01.01.2000",
+			"phone": "123456789",
+			"points": 190
+		},
+		{
+			"id": 10481,
+			"firstName": "Heidrun",
+			"lastName": "Gravdal",
+			"title": "Rådgiver",
+			"age": 39,
+			"applicationDate": "$date('2019-10-14 13:19:39')",
+			"email": "test@test.no",
+			"birthday": "01.01.2000",
+			"phone": "123456789",
+			"points": 190
+		},
+		{
+			"id": 10482,
+			"firstName": "Elise",
+			"lastName": "Sivertsen",
+			"title": "Student",
+			"age": 30,
+			"applicationDate": "$date('2019-10-14 13:19:39')",
+			"email": "test@test.no",
+			"birthday": "01.01.2000",
+			"phone": "123456789",
+			"points": 200
+		},
+		{
+			"id": 10483,
+			"firstName": "Vera",
+			"lastName": "Johansen",
+			"title": "Konsulent",
+			"age": 49,
+			"applicationDate": "$date('2019-09-14 13:19:39')",
+			"email": "test@test.no",
+			"birthday": "01.01.2000",
+			"phone": "123456789",
+			"points": 170
+		},
+		{
+			"id": 10484,
+			"firstName": "Sofus",
+			"lastName": "Bertelsson",
+			"title": "Rådgiver",
+			"age": 31,
+			"applicationDate": "$date('2019-10-14 13:19:39')",
+			"email": "test@test.no",
+			"birthday": "01.01.2000",
+			"phone": "123456789",
+			"points": 170
+		},
+		{
+			"id": 10483,
+			"firstName": "Halvard",
+			"lastName": "Lundberg",
+			"title": "Arbeidsledig",
+			"age": 59,
+			"applicationDate": "$date('2019-09-14 13:19:39')",
+			"email": "test@test.no",
+			"birthday": "01.01.2000",
+			"phone": "123456789",
+			"points": 150
+		},
+		{
+			"id": 10483,
+			"firstName": "Lene",
+			"lastName": "Martinsen",
+			"title": "Konsulent",
+			"age": 38,
+			"applicationDate": "$date('2019-09-14 13:19:39')",
+			"email": "test@test.no",
+			"birthday": "01.01.2000",
+			"phone": "123456789",
+			"points": 170
+		},
+		{
+			"id": 10483,
+			"firstName": "Anita",
+			"lastName": "Soløy",
+			"title": "Markekdsjef",
+			"age": 48,
+			"applicationDate": "$date('2019-09-14 13:19:39')",
+			"email": "test@test.no",
+			"birthday": "01.01.2000",
+			"phone": "123456789",
+			"points": 170
+		}
+	],
+	"hired": []
 }
