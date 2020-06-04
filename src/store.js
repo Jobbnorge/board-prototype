@@ -35,13 +35,10 @@ class Store {
     getIcons() {
         return this.state.icons
     }
-    isQualified(candidateId) {
-        this.state.candidates["qualified"].forEach((element) => {
-            if(element.id == candidateId) {
-                return true; 
-            }
+    isQualified(candidateId) { 
+        return this.state.candidates["qualified"].find((element) => {
+            element.id === candidateId
           })
-          return false; 
           
     }
 
