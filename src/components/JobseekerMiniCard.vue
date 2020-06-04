@@ -42,8 +42,7 @@ export default {
   },
   data() {
       return {
-          cleanDate: "",
-          isQualified: false 
+          cleanDate: ""
       }
   },
   created() {

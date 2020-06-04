@@ -1,7 +1,14 @@
 <template>
   <div class="boardlist">
     <div class="head">{{ name }}</div>
-    <draggable :list="orderedItems" @change="$emit('draggableChanged', $event)" @start="log" :draggable="false">
+    <draggable
+      :list="orderedItems"
+      :group="draggableGroup"
+      @change="$emit('draggableChanged', $event)"
+      ghost-class="my-ghost-class"
+      easing="cubic-bezier(1, 0, 0, 1)"
+      animation="150"
+    >
       <JobseekerMiniCard v-for="item in orderedItems" v-bind:key="item.id" v-bind="item" />
     </draggable>
     <slot name="button" />
@@ -38,11 +45,6 @@ export default {
     orderedItems: function() {
       var vm = this;
       return _.orderBy(vm.items, vm.orderby, vm.direction);
-    }
-  },
-  methods: {
-    log(e){
-      console.info(e)
     }
   }
 };

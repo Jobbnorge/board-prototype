@@ -94,7 +94,7 @@
 
 <script>
 import BoardList from './BoardList';
-// import JobseekerMiniCard from './JobseekerMiniCard';
+import JobseekerMiniCard from './JobseekerMiniCard';
 import ToggleButton from "./ToggleButton";
 import { store } from "../store";
 
