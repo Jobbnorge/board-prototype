@@ -1,5 +1,5 @@
 module.exports = {
-    outputDir: 'C:\\Source\\Code\\Client\\packages\\clients\\board\\dist',
+    outputDir: 'C:\\Source\\Code\\Client\\packages\\clients\\board-prototype\\dist',
     filenameHashing: false,
     runtimeCompiler: true,
     configureWebpack: {
@@ -12,7 +12,7 @@ module.exports = {
             }
         },
         output: {
-            filename: 'board_vue_app.js'
+            filename: 'board-prototype_vue_app.js'
         }
     }
 }
