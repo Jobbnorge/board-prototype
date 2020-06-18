@@ -12,7 +12,7 @@
       </div>
       <JnIconList :listItems="iconMap" />
       <div class="end">
-        <RatingComponent :size="20" :showCompact="true" />
+        <RatingComponent :size="20" />
       </div>
       <div class="assessment">
         <span v-if="screeningScore">

@@ -56,7 +56,7 @@ export default {
      openModal() {
         var vm = this;
 
-        jnDialog.richInfo({size: "large"}, {
+        jnDialog.richInfo(null, {
         header: {
             node: Vue.component("modal-header", {
             render: function(createElement) {
