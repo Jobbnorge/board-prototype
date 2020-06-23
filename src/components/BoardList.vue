@@ -56,7 +56,7 @@ export default {
   border-radius: 3px;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 50px;
+  grid-template-rows: 50px 1fr 50px;
   row-gap: 1em;
   cursor: pointer;
 }
