@@ -70,7 +70,7 @@ export default {
 
     for (const key in store.getIcons()) {
       var value = this.candidate[key];
-      this.iconMap[key] = [value, store.getIcons()[key]];
+      this.$set(this.iconMap, value, store.getIcons()[key])
     }
 
     this.isQualified = store.isQualified(this.candidate.id);
